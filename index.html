@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>量子扫雷 Quantum Sweeper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div>
+        <h1>🧨 量子扫雷</h1>
+        <p class="subtitle">经典扫雷 + 新玩法：充能技能、连击得分、随机事件</p>
+      </div>
+      <div class="stats">
+        <div>⏱ 时间：<span id="timer">0</span>s</div>
+        <div>💥 地雷：<span id="mines-left">0</span></div>
+        <div>⭐ 分数：<span id="score">0</span></div>
+        <div>🔥 连击：<span id="combo">x1</span></div>
+      </div>
+    </header>
+
+    <section class="controls">
+      <label>
+        难度
+        <select id="difficulty">
+          <option value="easy">轻松 (10x10, 15雷)</option>
+          <option value="normal" selected>标准 (14x14, 32雷)</option>
+          <option value="hard">硬核 (18x18, 58雷)</option>
+        </select>
+      </label>
+      <button id="new-game">新游戏</button>
+      <button id="scan" title="消耗100能量，扫描3x3区域安全信息">🔍 扫描 (100)</button>
+      <button id="pulse" title="消耗160能量，随机净化一个地雷（变安全）">⚡ 脉冲 (160)</button>
+      <div>⚙ 能量：<span id="energy">0</span>/200</div>
+    </section>
+
+    <section id="events" class="events">欢迎来到量子扫雷，首击必安全！</section>
+
+    <section id="board" class="board" aria-label="minesweeper board"></section>
+  </main>
+
+  <template id="cell-template">
+    <button class="cell" type="button" aria-label="cell"></button>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
